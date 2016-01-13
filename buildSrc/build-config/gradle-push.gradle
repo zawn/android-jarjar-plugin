@@ -13,7 +13,7 @@ def getReleaseRepositoryUrl() {
     if (isLocal()) {
         return hasProperty('RELEASE_REPOSITORY_LOCAL') ? RELEASE_REPOSITORY_LOCAL : "file://C:/Users/Administrator/.m2/repository"
     } else {
-        return hasProperty('RELEASE_REPOSITORY_URL') ? RELEASE_REPOSITORY_URL : "https://oss.sonatype.org/service/local/staging/deploy/maven2/"
+        return hasProperty('RELEASE_REPOSITORY_URL') ? RELEASE_REPOSITORY_URL : "https://api.bintray.com/maven/zhangzhenli/maven/android-jarjar-plugin/"
     }
 }
 
@@ -40,8 +40,8 @@ afterEvaluate { project ->
             mavenDeployer {
                 beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
 
-                pom.groupId = 'net.vrallev.gradle'
-                pom.artifactId = 'jarjar-gradle'
+                pom.groupId = 'com.house365.build'
+                pom.artifactId = 'android-jarjar-plugin'
                 pom.version = VERSION_NAME
 
                 repository(url: getReleaseRepositoryUrl()) {
