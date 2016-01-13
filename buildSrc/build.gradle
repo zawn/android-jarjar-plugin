@@ -1,0 +1,19 @@
+apply plugin: 'groovy'
+
+repositories {
+    mavenLocal()
+    maven {
+        url "http://192.168.108.60/nexus/content/groups/public/"
+    }
+    jcenter()
+}
+
+dependencies {
+    compile 'org.sonatype.plugins:jarjar-maven-plugin:1.9'
+    compile "com.android.tools.build:gradle:2.0.0-alpha3"
+    compile 'com.android.tools.build:transform-api:2.0.0-alpha3'
+    compile gradleApi()
+    compile localGroovy()
+}
+
+apply from: 'build-config/gradle-push.gradle'
