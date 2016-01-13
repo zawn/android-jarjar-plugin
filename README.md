@@ -20,6 +20,9 @@
             classpath 'com.house365.build:android-jarjar-plugin:1.0.0'
         }
     }
+    
+    apply plugin: 'jarjar'
+    
     ```
 
 2. 配置jarjar规则,示例如下.
