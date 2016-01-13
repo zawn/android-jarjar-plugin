@@ -1,12 +1,6 @@
 # android-jarjar-plugin
 
-用于合并Gradle Android Library中的依赖至AAR文件的classes.jar.类似于Maven Shade Plugin. 
-
-类似项目:https://github.com/johnrengelman/shadow (该插件暂时不支持Android,2016年1月13日)
-
-## 说明
-
-该插件使用了Transform API,参见:http://tools.android.com/tech-docs/new-build-system/transform-api ,要求Android Gradle Plugin插件版本不低于2.0.0-alpha3
+用于Android Grade项目的JarJar插件.
 
 
 ## 使用
