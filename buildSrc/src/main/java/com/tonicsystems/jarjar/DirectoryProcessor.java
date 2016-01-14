@@ -75,13 +75,6 @@ public class DirectoryProcessor {
 
     }
 
-    /**
-     * Create a copy of an zip file without its empty directories.
-     *
-     * @param inputFile
-     * @param outputFile
-     * @throws IOException
-     */
     public static void copyZipWithoutEmptyDirectories(final File inputFile, final File outputFile) throws IOException {
 
         final ZipFile inputZip = new ZipFile(inputFile);

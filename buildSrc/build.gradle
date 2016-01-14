@@ -12,6 +12,7 @@ dependencies {
     compile 'org.sonatype.plugins:jarjar-maven-plugin:1.9'
     compile "com.android.tools.build:gradle:2.0.0-alpha3"
     compile 'com.android.tools.build:transform-api:2.0.0-alpha3'
+    compile 'org.apache.commons:commons-lang3:3.4'
     compile gradleApi()
     compile localGroovy()
 }

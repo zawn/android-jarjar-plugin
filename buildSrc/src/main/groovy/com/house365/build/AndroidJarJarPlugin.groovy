@@ -4,7 +4,9 @@
 
 package com.house365.build
 
+import com.android.build.gradle.AppExtension
 import com.android.build.gradle.BaseExtension
+import com.android.build.gradle.LibraryExtension
 import com.tonicsystems.jarjar.JarJarTransform
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -18,6 +20,9 @@ import org.gradle.api.logging.Logging
 public class AndroidJarJarPlugin implements Plugin<Project> {
     protected Logger logger;
     private BaseExtension android
+    boolean isLibrary
+    boolean isTest
+
 
     @Override
     void apply(Project project) {
@@ -26,7 +31,12 @@ public class AndroidJarJarPlugin implements Plugin<Project> {
         if (android == null) {
             throw new ProjectConfigurationException("Only use shade for android library", null)
         }
-        project.getExtensions().create("jarjar", AndroidJarJarPluginExtension.class);
+        def jarJarPluginExtension = project.getExtensions().create("jarjar", AndroidJarJarPluginExtension.class);
+        if (android instanceof LibraryExtension) {
+            isLibrary = true
+        } else if (android instanceof AppExtension) {
+            isLibrary = false
+        }
         android.registerTransform(new JarJarTransform(project))
     }
 
@@ -34,4 +44,5 @@ public class AndroidJarJarPlugin implements Plugin<Project> {
         final AndroidJarJarPluginExtension config = project.jarjar
         return config
     }
+
 }
