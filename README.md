@@ -17,7 +17,7 @@
             jcenter()
         }
         dependencies {
-            classpath 'com.house365.build:android-jarjar-plugin:1.0.0'
+            classpath 'com.house365.build:android-jarjar-plugin:1.0.2'
         }
     }
     
